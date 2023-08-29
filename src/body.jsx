@@ -13,17 +13,18 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useEffect, useState } from 'react';
 
 const Body = () => {
- const [tru, setTru] = useState('')
+ const [tru, setTru] = useState('Click dice to generate advice')
  const [num, setNum] = useState()
  const [nnn,setNnn] = useState(false)
 
  
     const doi = () => {
-
+        setNnn(true)
+        setTru('')
           fetch('https://api.adviceslip.com/advice').then( (response) => response.json()).then( (data) =>{
             setNum(data.slip.id)
         setTru(data.slip.advice) 
-        setNnn(true)
+        setNnn(false)
     })
     
     }
@@ -39,8 +40,9 @@ const Body = () => {
                 <h5>Advice # {num} </h5>
         
       <p>
-
-        {nnn? tru : 'Click the die to generate advice'}
+        {tru}
+    {nnn && <Spinner animation="grow" />}
+        {tru && tru}
 
         
         
