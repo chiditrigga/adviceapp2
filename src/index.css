@@ -21,10 +21,21 @@ p{
   color: hsl(193, 38%, 86%) !important;
 }
 
-.dice{
-  border-radius: 50px !important;
+.dice2{
+  border-radius: 50% !important;
   border: 10px solid hsl(150, 100%, 66%) !important;
   background: hsl(150, 100%, 66%) !important;
-  padding: 2px;
+  
 }
 
+.dice:hover{
+  box-shadow:  hsl(150, 100%, 66%) 0 0 30px 3px;
+}
+
+@media screen and (max-width: 500px) {
+  .bor{
+    width: 95vw !important;
+
+  
+  }
+}

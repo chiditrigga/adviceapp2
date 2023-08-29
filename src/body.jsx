@@ -13,16 +13,19 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useEffect, useState } from 'react';
 
 const Body = () => {
- const [tru, setTru] = useState('Click dice to generate advice')
- const [num, setNum] = useState()
+ const [tru, setTru] = useState()
+ const [num, setNum] = useState(1)
  const [nnn,setNnn] = useState(false)
+ const [fir, setFir] = useState('Click dice to generate advice')
 
  
     const doi = () => {
         setNnn(true)
+        setFir('')
         setTru('')
+        setNum()
           fetch('https://api.adviceslip.com/advice').then( (response) => response.json()).then( (data) =>{
-            setNum(data.slip.id)
+            setNum(  num + 1)
         setTru(data.slip.advice) 
         setNnn(false)
     })
@@ -34,13 +37,13 @@ const Body = () => {
     return (  
         <>
         <Container className='total position-relative vh-100 '>
-            <Row className=' position-absolute  top-50 start-50 translate-middle bor'>
-                <Col  className='text-center '>
+            <Row className=''>
+                <Col  className=' position-absolute text-center  top-50 start-50 translate-middle bor '>
                 
                 <h5>Advice # {num} </h5>
         
       <p>
-        {tru}
+        {fir}
     {nnn && <Spinner animation="grow" />}
         {tru && tru}
 
@@ -48,7 +51,10 @@ const Body = () => {
         
         </p> 
                 <Image className='pb-4' fluid src={big} /> <br />
-                <Image onClick={doi} className='position-absolute dice  top-100 start-50 translate-middle' fluid src={dice} />
+                <div className='dice2 position-absolute dice p-2 top-100 start-50 translate-middle'>
+                    <Image onClick={doi} className='p-0 m-0 ' fluid src={dice} />
+                </div>
+                
             </Col> 
             </Row>
            
