@@ -14,7 +14,7 @@ import { useEffect, useState } from 'react';
 
 const Body = () => {
  const [tru, setTru] = useState()
- const [num, setNum] = useState(1)
+ const [num, setNum] = useState()
  const [nnn,setNnn] = useState(false)
  const [fir, setFir] = useState('Click dice to generate advice')
 
@@ -25,7 +25,7 @@ const Body = () => {
         setTru('')
         setNum()
           fetch('https://api.adviceslip.com/advice').then( (response) => response.json()).then( (data) =>{
-            setNum(  num + 1)
+            setNum(  data.slip.id)
         setTru(data.slip.advice) 
         setNnn(false)
     })
@@ -38,19 +38,27 @@ const Body = () => {
         <>
         <Container className='total position-relative vh-100 '>
             <Row className=''>
-                <Col  className=' position-absolute text-center  top-50 start-50 translate-middle bor '>
+                <Col  className=' position-absolute text-center p-2 top-50 start-50 translate-middle bor '>
                 
-                <h5>Advice # {num} </h5>
+                <h5 className='pt-4'>Advice # {num} </h5>
         
-      <p>
+      <p className='p-md-3 p-2'>
         {fir}
     {nnn && <Spinner animation="grow" />}
-        {tru && tru}
+        {tru && `"${tru}"` }
 
         
         
         </p> 
-                <Image className='pb-4' fluid src={big} /> <br />
+        <div className='d-none d-sm-block'>
+            <Image className='pb-4 ' fluid src={big} /> 
+        </div>
+            <div className='d-block d-sm-none'>
+            <Image className='pb-4 ' fluid src={small} /> 
+            </div>
+    
+        
+                 <br />
                 <div className='dice2 position-absolute dice p-2 top-100 start-50 translate-middle'>
                     <Image onClick={doi} className='p-0 m-0 ' fluid src={dice} />
                 </div>

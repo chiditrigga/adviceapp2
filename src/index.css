@@ -1,5 +1,6 @@
 body{
   background: hsl(218, 23%, 16%) !important;
+  font-family: Manrope, 'Times New Roman', Times, serif !important;
 }
 
 h5{
@@ -19,6 +20,8 @@ h5{
 
 p{
   color: hsl(193, 38%, 86%) !important;
+  font-size: 28px !important;
+  font-weight: 400 !important;
 }
 
 .dice2{
@@ -35,6 +38,7 @@ p{
 @media screen and (max-width: 500px) {
   .bor{
     width: 95vw !important;
+    
 
   
   }
