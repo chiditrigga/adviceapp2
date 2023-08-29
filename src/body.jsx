@@ -20,10 +20,11 @@ const Body = () => {
 
  
     const doi = () => {
-        setNnn(true)
+        
         setFir('')
         setTru('')
         setNum()
+        setNnn(true)
           fetch('https://api.adviceslip.com/advice').then( (response) => response.json()).then( (data) =>{
             setNum(  data.slip.id)
         setTru(data.slip.advice) 
