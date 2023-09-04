@@ -52,7 +52,7 @@ const Body = () => {
             </div>
 
             <br />
-            <div className="dice2 position-absolute dice p-2 top-100 start-50 translate-middle">
+            <div onClick={doi} className="dice2 position-absolute dice p-2 top-100 start-50 translate-middle">
               <Image onClick={doi} className="p-0 m-0 " fluid src={dice} />
             </div>
           </Col>
