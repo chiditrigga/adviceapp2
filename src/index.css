@@ -28,6 +28,7 @@ p{
   border-radius: 50% !important;
   border: 10px solid hsl(150, 100%, 66%) !important;
   background: hsl(150, 100%, 66%) !important;
+  cursor:  pointer !important;
   
 }
 
@@ -44,6 +45,3 @@ p{
   }
 }
 
-.dicee{
-  cursor:  pointer !important;
-}
